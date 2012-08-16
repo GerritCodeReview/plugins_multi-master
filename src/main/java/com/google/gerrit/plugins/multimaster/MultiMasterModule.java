@@ -72,6 +72,8 @@ public class MultiMasterModule extends AbstractModule {
     DynamicSet.bind(binder(), CacheRemovalListener.class).to(
         CacheRemovalListenerImpl.class);
 
+    bind(DataAggregator.class).in(Scopes.SINGLETON);
+
     bind(StateMachine.class).in(Scopes.SINGLETON);
 
     bind(LifecycleListener.class).annotatedWith(UniqueAnnotations.create()).to(
