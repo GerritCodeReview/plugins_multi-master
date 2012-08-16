@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAIfn///xc\u003d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2012-08-16T22:06:53Z",
+      "side": 1,
+      "message": "This whole message should probably be rewritten to not include \"historical\" types of comments.",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAIfn///xs\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/DataAggregator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2012-08-16T22:06:53Z",
+      "side": 1,
+      "message": "I think this file is now unused in this change?",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAIfn///xU\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/DegradedManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2012-08-16T22:06:53Z",
+      "side": 1,
+      "message": "Can you use seconds here instead?",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAIfn///xM\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/MultiMasterModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2012-08-16T22:06:53Z",
+      "side": 1,
+      "message": "Can you make a global plugin git config file to get these values from, probably named:   \u003csite_path\u003e/etc/plugins/\u003cplugin\u003e.config\n\nThen you can separate the various config variables into sections based on the various internal implementation pieces, so for example, instead of a global config such as MaxSenders, it should really be:\n\n  [Evictor \"UDP\"]\n      MaxSenders \u003d 4\n      MaxTimeout \u003d 10s\n      BaseRetryTime \u003d 5s\n\n  [Cache]\n      MaxOutdated \u003d 1m\n\n  [GitRefPeerRegistry]\n      Project \u003d All-Projects\n      MasterRefList \u003d refs/meta/cluster/masters",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAIfn///Yc\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/MultiMasterModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2012-08-16T22:06:53Z",
+      "side": 1,
+      "message": "I am not sure you can currently handle messages larger than the MTU, so perhaps this value should be set to that.",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAIfn///bc\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/StateMachine.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2012-08-16T22:06:53Z",
+      "side": 1,
+      "message": "More of this feels like it belongs in the degraded manager?",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAIfn///bU\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/StateMachine.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2012-08-16T22:06:53Z",
+      "side": 1,
+      "message": "Can you eliminate any printlns left?",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAIfn///bQ\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/cache/CacheManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2012-08-16T22:06:53Z",
+      "side": 1,
+      "message": "nit: extra semicolon",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAIfn///Z8\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/impl/udp/UDPMessageSender.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2012-08-16T22:06:53Z",
+      "side": 1,
+      "message": "Probably just shoot the peer here for now?  Maybe add a max shot policy in a certain timeframe to cause a peer to shuthimself down?\n\n[Core]\n\n   MaxShootings \u003d 10\n   MaxShootingThresholds \u003d 50\n\nThat would mean that if a peer detects that it has been shot 10 times in the last 50 oudatedThresholds, that it should really shoot itself (shutdown).  Maybe the defaults should be 10/10 or something extreme like that.",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
