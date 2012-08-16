@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "AAAIf3///bA\u003d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1011147
+      },
+      "writtenOn": "2012-08-16T22:59:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAAIfn///xc\u003d",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAAIfn///xs\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/DataAggregator.java",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2012-08-16T22:06:53Z",
       "side": 1,
       "message": "I think this file is now unused in this change?",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAIf3///a4\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/DataAggregator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1011147
+      },
+      "writtenOn": "2012-08-16T22:59:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAAIfn///xs\u003d",
       "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "AAAIf3///as\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/DegradedManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1011147
+      },
+      "writtenOn": "2012-08-16T22:59:11Z",
+      "side": 1,
+      "message": "I feel like consistently using milliseconds will avoid confusion..",
+      "parentUuid": "AAAIfn///xU\u003d",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAAIfn///xM\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/MultiMasterModule.java",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "AAAIf3///ao\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/MultiMasterModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1011147
+      },
+      "writtenOn": "2012-08-16T22:59:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAAIfn///xM\u003d",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAAIfn///Yc\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/MultiMasterModule.java",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2012-08-16T22:06:53Z",
       "side": 1,
       "message": "I am not sure you can currently handle messages larger than the MTU, so perhaps this value should be set to that.",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAIf3///XA\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/MultiMasterModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1011147
+      },
+      "writtenOn": "2012-08-16T22:59:11Z",
+      "side": 1,
+      "message": "Set to 1400",
+      "parentUuid": "AAAIfn///Yc\u003d",
       "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -121,6 +211,24 @@
     },
     {
       "key": {
+        "uuid": "AAAIf3///W4\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/StateMachine.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1011147
+      },
+      "writtenOn": "2012-08-16T22:59:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAAIfn///bU\u003d",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAAIfn///bQ\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/cache/CacheManager.java",
         "patchSetId": 1
@@ -132,6 +240,24 @@
       "writtenOn": "2012-08-16T22:06:53Z",
       "side": 1,
       "message": "nit: extra semicolon",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAIf3///W0\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/cache/CacheManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1011147
+      },
+      "writtenOn": "2012-08-16T22:59:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAAIfn///bQ\u003d",
       "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
