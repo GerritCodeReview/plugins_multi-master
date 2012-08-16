@@ -40,6 +40,8 @@ public class CacheManager {
    * Flushes all caches
    */
   public void flushAll() {
+    // This prevents the thread responding to an evict notice from causing
+    // another evict notice.
     CacheRemovalListenerImpl.setIgnored(Thread.currentThread());
 
     log.info("Flushing all caches");
@@ -53,12 +55,14 @@ public class CacheManager {
   }
 
   /**
-   * Flushes a specific cache
+   * Flushes all entries in a specific cache
    *
    * @param pluginName
    * @param cacheName
    */
   public void flush(String pluginName, String cacheName) {
+    // This prevents the thread responding to an evict notice from causing
+    // another evict notice.
     CacheRemovalListenerImpl.setIgnored(Thread.currentThread());
 
     cacheMap.get(pluginName, cacheName).invalidateAll();

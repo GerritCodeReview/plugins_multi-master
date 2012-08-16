@@ -27,6 +27,7 @@ import org.slf4j.LoggerFactory;
 import com.google.gerrit.plugins.multimaster.cache.CacheManager;
 import com.google.gerrit.plugins.multimaster.cache.EvictNotice;
 import com.google.gerrit.plugins.multimaster.cache.Evictor;
+import com.google.gerrit.plugins.multimaster.peer.ClusterProperty;
 import com.google.gerrit.plugins.multimaster.peer.OutdatedThreshold;
 import com.google.gerrit.plugins.multimaster.peer.Peer;
 import com.google.gerrit.plugins.multimaster.peer.PeerRegistry;
@@ -44,8 +45,9 @@ public class StateMachine implements Evictor.Listener, PeerRegistry.Listener {
 
   private final long outdatedThreshold;
 
-  private CacheManager cacheManager;
-  private DegradedManager degradedManager;
+  private final CacheManager cacheManager;
+  private final DegradedManager degradedManager;
+  private final PeerRegistry peerRegistry;
 
   private ScheduledExecutorService scheduler = Executors
       .newSingleThreadScheduledExecutor();
@@ -56,6 +58,8 @@ public class StateMachine implements Evictor.Listener, PeerRegistry.Listener {
 
   private volatile boolean isOutdated = false;
   private volatile boolean isPeerHardDegraded = false;
+
+  private volatile boolean isReplicationMaster = false;
 
   private Set<Peer> degradedPeers = new HashSet<Peer>();
 
@@ -68,12 +72,55 @@ public class StateMachine implements Evictor.Listener, PeerRegistry.Listener {
     this.outdatedThreshold = outdatedThreshold;
     this.degradedManager = degradedManager;
     this.cacheManager = cacheManager;
+    this.peerRegistry = peerRegistry;
     this.gson = gson;
 
     evictor.addListener(this);
     peerRegistry.addListener(this);
 
     self.setProperty("hardDegraded", new Json(false));
+  }
+
+  public void start() {
+    initReplicationMaster();
+  }
+
+  private void initReplicationMaster() {
+    final String name = "replicationMaster";
+
+    if (!peerRegistry.isClusterPropertySet(name)) {
+      peerRegistry.setClusterProperty(name, new Json(self.getId()));
+    }
+
+    peerRegistry.addClusterPropertyListener(name,
+        new ClusterProperty.Listener() {
+
+          @Override
+          public void onUpdate(ClusterProperty property) {
+            Peer.Id masterId = (Peer.Id) property.getValue().getObject();
+
+            if (!isReplicationMaster && masterId.equals(self.getId())) {
+              log.info("Became replication master.");
+              isReplicationMaster = true;
+            }
+          }
+
+          @Override
+          public void onOutdated(ClusterProperty property) {
+            log.info("Current replication master is outdated. "
+                + "Attempting to become replication master.");
+            peerRegistry.setClusterProperty(property.getName(),
+                new Json(self.getId()));
+          }
+
+          @Override
+          public void onDoesNotExist(ClusterProperty property) {
+            log.info("Replication master does not exist. "
+                + "Attempting to become replication master.");
+            peerRegistry.setClusterProperty(property.getName(),
+                new Json(self.getId()));
+          }
+        });
   }
 
   public boolean stop() {

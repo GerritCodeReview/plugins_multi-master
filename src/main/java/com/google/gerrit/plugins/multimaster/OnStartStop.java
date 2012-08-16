@@ -44,6 +44,7 @@ public class OnStartStop implements LifecycleListener {
   public void start() {
     evictor.start();
     peerRegistry.start();
+    stateMachine.start();
   }
 
   @Override

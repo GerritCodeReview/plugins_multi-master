@@ -17,6 +17,8 @@ package com.google.gerrit.plugins.multimaster.peer;
 import java.util.Collection;
 import java.util.Set;
 
+import com.google.gerrit.plugins.multimaster.Json;
+
 
 public interface PeerRegistry {
   public interface Listener {
@@ -63,6 +65,16 @@ public interface PeerRegistry {
    */
   public Collection<PeerActivity> getActivities();
 
+
+  public ClusterProperty getClusterProperty(String name);
+
+  public boolean setClusterProperty(String name, Json value);
+
+  public boolean addClusterPropertyListener(String name,
+      ClusterProperty.Listener listener);
+
+  public boolean isClusterPropertySet(String name);
+
   /**
    * Get a specific peer
    *
@@ -70,4 +82,6 @@ public interface PeerRegistry {
    * @return peer or null if peer id is uknown
    */
   public Peer get(Peer.Id id);
+
+  public PeerActivity getActivity(Peer.Id id);
 }

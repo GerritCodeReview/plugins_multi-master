@@ -32,6 +32,8 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.gerrit.plugins.multimaster.Json;
+import com.google.gerrit.plugins.multimaster.peer.ClusterProperty;
 import com.google.gerrit.plugins.multimaster.peer.OutdatedThreshold;
 import com.google.gerrit.plugins.multimaster.peer.Peer;
 import com.google.gerrit.plugins.multimaster.peer.PeerActivity;
@@ -46,7 +48,8 @@ public class GitRefPeerRegistry implements PeerRegistry {
       .getLogger(GitRefPeerRegistry.class);
 
   private ScheduledExecutorService scheduler = Executors
-      .newScheduledThreadPool(2);
+      .newScheduledThreadPool(3);
+  protected ExecutorService executor = Executors.newCachedThreadPool();
 
   protected long outdatedThreshold;
   protected long refreshTime;
@@ -56,7 +59,11 @@ public class GitRefPeerRegistry implements PeerRegistry {
   protected List<Listener> listeners = Collections
       .synchronizedList(new LinkedList<Listener>());
 
-  protected ExecutorService executor = Executors.newCachedThreadPool();
+  protected Map<String, ClusterProperty> properties = Collections
+      .synchronizedMap(new HashMap<String, ClusterProperty>());
+  protected Map<String, Set<ClusterProperty.Listener>> propertyListeners =
+      Collections
+          .synchronizedMap(new HashMap<String, Set<ClusterProperty.Listener>>());
 
   private Peer self;
   private GitRefManager gitRefManager;
@@ -89,7 +96,9 @@ public class GitRefPeerRegistry implements PeerRegistry {
 
     scheduler.scheduleWithFixedDelay(new WriteTask(), 0, refreshTime,
         TimeUnit.MILLISECONDS);
-    scheduler.execute(new ReadTask());
+    executor.execute(new ReadTask());
+    scheduler.scheduleWithFixedDelay(new ClusterPropertyCheckTask(), 0,
+        refreshTime, TimeUnit.MILLISECONDS);
 
     started = true;
   }
@@ -143,6 +152,10 @@ public class GitRefPeerRegistry implements PeerRegistry {
 
   public Peer get(Peer.Id id) {
     return activities.get(id).peer;
+  }
+
+  public PeerActivity getActivity(Peer.Id id) {
+    return activities.get(id);
   }
 
   /**
@@ -221,6 +234,122 @@ public class GitRefPeerRegistry implements PeerRegistry {
       });
     }
   }
+
+  @Override
+  public ClusterProperty getClusterProperty(String name) {
+    if (properties.containsKey(name) || loadClusterProperty(name)) {
+      return properties.get(name);
+    }
+
+    return null;
+  }
+
+  @Override
+  public boolean setClusterProperty(String name, Json value) {
+    ClusterProperty property = new ClusterProperty(name, value, self.getId());
+
+    try {
+      return gitRefManager.set("properties/" + name, "value",
+          gson.toJson(property)
+          .getBytes());
+    } catch (IOException e) {
+      log.error("IOException while setting cluster property.", e);
+      return false;
+    }
+  }
+
+  @Override
+  public boolean addClusterPropertyListener(String name,
+      ClusterProperty.Listener listener) {
+    if (propertyListeners.containsKey(name) || loadClusterProperty(name)) {
+      return propertyListeners.get(name).add(listener);
+    }
+
+    return false;
+  }
+
+  @Override
+  public boolean isClusterPropertySet(String name) {
+    return loadClusterProperty(name);
+  }
+
+  private boolean loadClusterProperty(String name) {
+    byte[] propertyBytes = gitRefManager.get("properties/" + name, "value");
+
+    if (propertyBytes == null) {
+      return false;
+    }
+
+    ClusterProperty property =
+        (ClusterProperty) gson.fromJson(new String(propertyBytes),
+            ClusterProperty.class);
+
+    if (properties.containsKey(name)) {
+      properties.get(name).setValue(property.getValue(), property.getAuthor());
+    } else {
+      properties.put(name, property);
+    }
+
+    if (!propertyListeners.containsKey(name)) {
+      propertyListeners.put(name, new HashSet<ClusterProperty.Listener>());
+    }
+
+    return true;
+  }
+
+
+  private class ClusterPropertyCheckTask implements Runnable {
+    public void run() {
+      try {
+        check();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    }
+
+    private void check() {
+      for (ClusterProperty property : properties.values()) {
+        boolean propertyExists = loadClusterProperty(property.getName());
+
+        // Ref does not exist
+        if (!propertyExists) {
+          for (ClusterProperty.Listener listener : propertyListeners
+              .get(property.getName())) {
+            listener.onDoesNotExist(property);
+          }
+          continue;
+        }
+
+        // Skip if this instance is the author
+        if (property.getAuthor().equals(self.getId())) {
+          for (ClusterProperty.Listener listener : propertyListeners
+              .get(property.getName())) {
+            listener.onUpdate(property);
+          }
+          continue;
+        }
+
+        PeerActivity activity = activities.get(property.getAuthor());
+
+        // Property is outdated
+        if (activity == null
+            || (System.currentTimeMillis() - activity.lastSeen > outdatedThreshold)) {
+          for (ClusterProperty.Listener listener : propertyListeners
+              .get(property.getName())) {
+            listener.onOutdated(property);
+          }
+          continue;
+        }
+
+        for (ClusterProperty.Listener listener : propertyListeners.get(property
+            .getName())) {
+          listener.onUpdate(property);
+        }
+      }
+    }
+  }
+
+
 
   /**
    * Routine task that writes refs to allow other peers to see that this instance
