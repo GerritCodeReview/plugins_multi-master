@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAImn////o\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/peer/Pacemaker.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2012-08-17T06:12:20Z",
+      "side": 1,
+      "message": "Nit: feels like too many blank lines.",
+      "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAImn////k\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/peer/Pacemaker.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2012-08-17T06:12:20Z",
+      "side": 1,
+      "message": "Instead of extending a PeerRegistry.Listener, since I believe the intent is to be able to externally bind the Pacemaker to a PeerRegistry, would simply defining a listenTo(PeerRegistry.Listener) method more clearly express this?  Additionally, this would allow a Pacemaker more freedom implementing the PeerRegistry.Listener, it could the do so via an internal listener instead of directly implementating the listener interaface if it suited the Pacemaker better.",
+      "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAImn////g\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/peer/Pacemaker.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2012-08-17T06:12:20Z",
+      "side": 1,
+      "message": "Extra abstracts?",
+      "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAImn////s\u003d",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/peer/PeerRegistry.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2012-08-17T06:12:20Z",
+      "side": 1,
+      "message": "Does abstract provide any value on an interface?",
+      "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
