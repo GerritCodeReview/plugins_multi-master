@@ -177,6 +177,23 @@
     },
     {
       "key": {
+        "uuid": "ONmz22x8",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/MultiMasterUtil.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1012107
+      },
+      "writtenOn": "2013-01-14T10:45:02Z",
+      "side": 1,
+      "message": "It can be calculated without a temp array. Btw, where these methods are used?",
+      "revId": "9ec1b2c2e28c555e0bffbfd6046142c3dca4c63a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAAIfn///bc\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/StateMachine.java",
         "patchSetId": 1
