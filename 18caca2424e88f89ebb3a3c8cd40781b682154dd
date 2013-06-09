@@ -257,6 +257,23 @@
     },
     {
       "key": {
+        "uuid": "7d29791e_54fe6ced",
+        "filename": "src/main/java/com/google/gerrit/plugins/multimaster/impl/git/GitRefPeerRegistry.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1010817
+      },
+      "writtenOn": "2013-06-09T03:13:54Z",
+      "side": 1,
+      "message": "Recursion seems like a bad idea here.  Maybe a \u0027while\u0027 instead?  But it seems like either case could result in an infinite loop if the refreshTime is too short.",
+      "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAALmn///+w\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/impl/udp/UDPEvictor.java",
         "patchSetId": 4
