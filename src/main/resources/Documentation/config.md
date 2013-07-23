@@ -147,6 +147,8 @@ authentication
 
 ### Brute Force Cache Coherency ###
 
+#### Disabling Caches ####
+
 The simplest solution to ensure cache coherency is to
 disable the caches so each server is forced to get
 up-to-date data from the database and repos on every
@@ -175,10 +177,30 @@ server's config, `<site>/etc/gerrit.config`:
 
 Restart all servers for the config changes to take effect.
 
+#### Flushing Caches ####
+
+Alternatively, this plugin can run a master in a DEGRADED
+mode, in which the caches are frequently flushed so that the
+caches are essentially disabled.  To enable DEGRADED mode,
+add the following lines to each server's multi-master
+config, `<site>/etc/multimaster.config`:
+
 ```
-  $ ./<site1>/bin/gerrit.sh restart
-  $ ./<site2>/bin/gerrit.sh restart
+  [cache]
+    flushRate = <value>     # "1 second" would be reasonable
 ```
+
+Values should use common unit suffixes to express their
+setting:
+
+* ms, milliseconds
+* s, sec, second, seconds
+* m, min, minute, minutes
+
+If a unit suffix is not specified, milliseconds is assumed.
+
+Reload the plugin on each master for the changes to take
+effect.
 
 Web Sessions
 ------------
