@@ -27,10 +27,12 @@
 
 package com.googlesource.gerrit.plugins.multimaster;
 
+import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.gerrit.server.config.SitePaths;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.google.inject.Provides;
+import com.google.inject.internal.UniqueAnnotations;
 
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.Config;
@@ -53,7 +55,8 @@ public class MultiMasterModule extends AbstractModule {
 
   @Override
   protected void configure() {
-    // do nothing
+    bind(LifecycleListener.class).annotatedWith(UniqueAnnotations.create()).to(
+        CacheFlusher.class);
   }
 
   @Provides

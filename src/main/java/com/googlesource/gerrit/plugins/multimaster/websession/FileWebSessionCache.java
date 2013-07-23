@@ -25,7 +25,7 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package com.googlesource.gerrit.plugins.multimaster;
+package com.googlesource.gerrit.plugins.multimaster.websession;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheStats;
@@ -34,6 +34,8 @@ import com.google.gerrit.httpd.WebSessionManager;
 import com.google.gerrit.httpd.WebSessionManager.Val;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+
+import com.googlesource.gerrit.plugins.multimaster.MultiMasterConfig;
 
 import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
