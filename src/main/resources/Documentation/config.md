@@ -215,8 +215,8 @@ splits might happen without a multi-master solution anyway
 in many situations by using independent masters.  Lacking
 an alternative it is worth asking if the non-shared web
 sessions approach might be an improvement over independent
-master.  See *1 for other reasons why you might want to use
-this setup.
+master.  See [rationale](#rationale) for other reasons why
+you might want to use this setup.
 
 
 HTTP Access
@@ -237,8 +237,8 @@ initial URL they choose to access the master.  Subsequent
 accesses will be to the same master.
 
 While separate host URLs does not provide a great http
-user experience, see *1 for why you might want to do this
-absent any other solutions.
+user experience, see [rationale](#rationalw) for why you
+might want to do this absent any other solutions.
 
 ```
   $ java -jar {path/}gerrit.war init -d <site1>
@@ -326,8 +326,40 @@ each master's config, `<site>/etc/gerrit.config`:
 
 Restart all servers for the config changes to take effect.
 
+A sample <haproxy_config> file for HAProxy:
 
-*1 The different host URL setup is valuable if you mainly
+```
+  global
+    daemon
+    pidfile /var/run/haproxy.pid
+
+  defaults
+    mode tcp
+    retries 3
+    timeout connect 5000ms
+    timeout client 50000ms
+    timeout server 50000ms
+
+  frontend ssh-in
+    bind <ip>:<ssh_port>
+    # NOTE: users should connect over ssh to
+    # <ip>:<ssh_port>, which should be the same as the
+    # sshd.advertisedAddress parameter in the
+    # 'gerrit.config' files
+    default_backend ssh-servers
+
+  backend ssh-servers
+    option redispatch
+    server server1 <server1_ip>:<server1_ssh_port> check
+    server server2 <server2_ip>:<server2_ssh_port> check
+```
+
+See [Using HAProxy](#HAProxy) for how to start and stop HAProxy.
+
+
+###<a id="rationale"> Rationale</a>
+
+The different host URL setup is valuable if you mainly
 care to load balance ssh traffic and don't care which http
 master your users hit.  Gerrit http traffic is generally
 very light compared to Gerrit ssh traffic (unless git over
@@ -339,3 +371,30 @@ you choose to use multi-masters only for ssh, you want to
 set your canonical URL to point to the single http master
 so that change upload messages created by each master
 point to the correct http URL.
+
+###<a id="HAProxy">Using HAProxy</a>
+
+For more information go [here][http://haproxy.1wt.eu/].
+
+Check if the HAProxy config file is valid:
+
+```
+  $ sudo haproxy -f <haproxy_config> -c
+```
+
+Start HAProxy:
+
+```
+  $ sudo haproxy -f <haproxy_config>
+```
+
+HAProxy can be stopped using "sudo kill \<haproxy_pid\>".
+The HAProxy PID can be found using "ps -e | grep haproxy".
+If you are using the example config file, the PID can also
+be found in '/var/run/haproxy.pid'.  To reload a new
+configuration with minimal service impact and without
+breaking existing sessions, run:
+
+```
+  $ sudo haproxy -f haproxy.cfg -sf <haproxy_pid>
+```
