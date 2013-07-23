@@ -25,7 +25,7 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package com.googlesource.gerrit.plugins.multimaster;
+package com.googlesource.gerrit.plugins.multimaster.websession;
 
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.extensions.registration.DynamicItem;
@@ -41,6 +41,8 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.servlet.RequestScoped;
 import com.google.inject.servlet.ServletScopes;
+
+import com.googlesource.gerrit.plugins.multimaster.MultiMasterConfig;
 
 import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;

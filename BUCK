@@ -4,6 +4,6 @@ gerrit_plugin(
   resources = glob(['src/main/resources/**/*']),
   manifest_entries = [
     'Gerrit-Module: com.google.gerrit.plugins.multimaster.MultiMasterModule',
-    'Gerrit-HttpModule: com.google.gerrit.plugins.multimaster.FileCacheBasedWebSession$Module',
+    'Gerrit-HttpModule: com.google.gerrit.plugins.multimaster.websession.FileCacheBasedWebSession$Module',
   ]
 )
