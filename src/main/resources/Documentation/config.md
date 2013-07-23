@@ -186,7 +186,9 @@ Web Sessions
 Web sessions are a special case of caches.  The web session
 caches are authoritative and the sessions are not stored
 anywhere else.  So with a standard gerrit it is not possible
-to share web sessions across masters.
+to share web sessions across masters.  However, this plugin
+allows gerrit to use a different cache for web sessions
+which can be shared by the masters.
 
 ### Non-Shared Web Sessions ###
 
@@ -218,6 +220,27 @@ sessions approach might be an improvement over independent
 master.  See [rationale](#rationale) for other reasons why
 you might want to use this setup.
 
+### Shared Web Sessions ###
+
+Sharing one web session cache between all masters and
+setting the same hostname for each master will allow shared
+web sessions across masters. Setting up the same hostname is
+described under the HTTP Access section.  To have all
+masters use the same cache, add the following lines to each
+server's multi-master config,
+`<site>/etc/multimaster.config`:
+
+```
+  [cache "web_sessions"]
+    directory = <disk_cache_directory>
+  # NOTE: <disk_cache_directory> can be any location on the
+    shared filesystem that can be accessed by all servers,
+    and in which rename operations are atomic and allow
+    overwriting of existing files
+```
+
+Reload the plugin on each master for the changes to take
+effect.
 
 HTTP Access
 -----------
@@ -265,6 +288,30 @@ might want to do this absent any other solutions.
     defaults)
   # ...
 ```
+
+### Same Host URLs and Load Balancing ###
+
+NOTE: Shared web sessions must be setup first.
+Accessing masters on different servers using the same host
+URL requires using a load balancer.  By connecting to the
+masters through a load balancer, the users will see only one
+hostname (the load balancer's), and thus will have just one
+session.  Any standard load balancer can be used.
+
+The load balancer's front-end http address should be made
+different from that of any master.  Configure the load
+balancer's back-end with the http addresses of all the
+masters.  To have the masters direct clients to connect to
+the load balancer's http address, add the following lines to
+each master's config, `<site>/etc/gerrit.config`:
+
+```
+  [gerrit]
+    canonicalWebUrl = http[s]://<ip>:<port>
+                         # http address of the load balancer
+```
+
+Restart all servers for the config changes to take effect.
 
 SSH Access
 ----------
