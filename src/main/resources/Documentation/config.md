@@ -313,6 +313,35 @@ each master's config, `<site>/etc/gerrit.config`:
 
 Restart all servers for the config changes to take effect.
 
+A sample setup using HAProxy is given below:
+
+```
+  global
+    daemon
+    pidfile /var/run/haproxy.pid
+
+  defaults
+    mode http
+    timeout connect 5000ms
+    timeout client 50000ms
+    timeout server 50000ms
+
+  frontend http-in
+    bind <ip>:<http_port>
+    # NOTE: users should connect over http to
+      <ip>:<http_port>, which should be the same as the
+      gerrit.canonicalWebUrl parameter in the
+      'gerrit.config' files
+    default_backend http-servers
+
+  backend http-servers
+    server server1 <server1_ip>:<server1_http_port>
+    server server2 <server2_ip>:<server2_http_port>
+```
+
+See *2 for how to start and stop HAProxy.
+
+
 SSH Access
 ----------
 
