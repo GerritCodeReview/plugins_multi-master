@@ -266,6 +266,59 @@ might want to do this absent any other solutions.
   # ...
 ```
 
+### Same Host URLs and Load Balancing ###
+
+NOTE: Shared web sessions must be setup first.
+Accessing masters on different servers using the same host
+URL requires using a load balancer.  By connecting to the
+masters through a load balancer, the users will see only one
+hostname (the load balancer's), and thus will have just one
+session.  Any standard load balancer can be used.
+
+The load balancer's front-end http address should be made
+different from that of any master.  Configure the load
+balancer's back-end with the http addresses of all the
+masters.  To have the masters direct clients to connect to
+the load balancer's http address, add the following lines to
+each master's config, `<site>/etc/gerrit.config`:
+
+```
+  [gerrit]
+    canonicalWebUrl = http[s]://<ip>:<port>
+                         # http address of the load balancer
+```
+
+Restart all servers for the config changes to take effect.
+
+A sample setup using HAProxy is given below:
+
+```
+  global
+    daemon
+    pidfile /var/run/haproxy.pid
+
+  defaults
+    mode http
+    timeout connect 5000ms
+    timeout client 50000ms
+    timeout server 50000ms
+
+  frontend http-in
+    bind <ip>:<http_port>
+    # NOTE: users should connect over http to
+      <ip>:<http_port>, which should be the same as the
+      gerrit.canonicalWebUrl parameter in the
+      'gerrit.config' files
+    default_backend http-servers
+
+  backend http-servers
+    server server1 <server1_ip>:<server1_http_port>
+    server server2 <server2_ip>:<server2_http_port>
+```
+
+See *2 for how to start and stop HAProxy.
+
+
 SSH Access
 ----------
 
