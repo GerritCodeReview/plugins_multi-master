@@ -33,6 +33,8 @@ import com.google.gerrit.extensions.registration.DynamicMap;
 import com.google.gerrit.server.config.ConfigUtil;
 import com.google.inject.Inject;
 
+import com.googlesource.gerrit.plugins.multimaster.StateManager.MemberState;
+
 import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,16 +53,16 @@ public class CacheFlusher implements LifecycleListener {
       "projects", "groups_members", "sshkeys"});
 
   private final DynamicMap<Cache<?, ?>> cacheMap;
-  private final MemberState memberState;
+  private final StateManager stateManager;
   private final ScheduledExecutorService scheduler;
   private ScheduledFuture<?> flusher = null;
   private final long flushRate;
 
   @Inject
   public CacheFlusher(DynamicMap<Cache<?, ?>> cacheMap,
-      MemberState memberState, @MultiMasterConfig Config cfg) {
+      StateManager stateManager, @MultiMasterConfig Config cfg) {
     this.cacheMap = cacheMap;
-    this.memberState = memberState;
+    this.stateManager = stateManager;
     scheduler = Executors.newSingleThreadScheduledExecutor();
     flushRate =
         ConfigUtil.getTimeUnit(cfg, "cache", null, "flushRate", -1,
@@ -75,7 +77,9 @@ public class CacheFlusher implements LifecycleListener {
     flusher = scheduler.scheduleWithFixedDelay(new Runnable() {
       @Override
       public void run() {
+        MemberState memberState = stateManager.getMemberState();
         if (memberState.isDegraded()) {
+          memberState.flushed();
           flushAll();
         }
       }

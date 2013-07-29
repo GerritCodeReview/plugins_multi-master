@@ -5,5 +5,6 @@ gerrit_plugin(
   manifest_entries = [
     'Gerrit-Module: com.google.gerrit.plugins.multimaster.MultiMasterModule',
     'Gerrit-HttpModule: com.google.gerrit.plugins.multimaster.websession.FileCacheBasedWebSession$Module',
+    'Gerrit-SshModule: com.googlesource.gerrit.plugins.multimaster.commands.DegradedModeCommands',
   ]
 )

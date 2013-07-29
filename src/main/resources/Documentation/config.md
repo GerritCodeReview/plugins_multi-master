@@ -202,6 +202,10 @@ If a unit suffix is not specified, milliseconds is assumed.
 Reload the plugin on each master for the changes to take
 effect.
 
+DEGRADED mode can be manually enabled or disabled using SSH
+commmands, "[degrade](cmd-degrade.html)" and
+"[auto-degrade](cmd-auto-degrade.html)".
+
 Web Sessions
 ------------
 
