@@ -27,15 +27,43 @@
 
 package com.googlesource.gerrit.plugins.multimaster;
 
+import com.google.gerrit.extensions.events.LifecycleListener;
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
+import com.googlesource.gerrit.plugins.multimaster.cluster.PeerRegistry;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+
 @Singleton
-public class StateManager {
+public class StateManager implements LifecycleListener {
+  private static final Logger log = LoggerFactory.getLogger(StateManager.class);
+
   private volatile MemberState state;
   private volatile boolean flushed;
+  private PeerRegistry peerRegistry;
 
-  public StateManager() {
+  @Inject
+  public StateManager(PeerRegistry peerRegistry) {
     state = new MemberState(false);
+    this.peerRegistry = peerRegistry;
+  }
+
+  @Override
+  public void start() {
+    try {
+      peerRegistry.register();
+    } catch (IOException e) {
+      log.warn("Could not register self", e);
+    }
+  }
+
+  @Override
+  public void stop() {
+    // do nothing
   }
 
   public MemberState getMemberState() {

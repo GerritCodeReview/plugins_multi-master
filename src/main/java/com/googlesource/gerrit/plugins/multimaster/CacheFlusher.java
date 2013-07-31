@@ -72,6 +72,8 @@ public class CacheFlusher implements LifecycleListener {
   @Override
   public void start() {
     if (flushRate == -1) {
+      log.warn("cache.flushRate must be specified."
+          + " Cache flushes will not be enabled.");
       return;
     }
     flusher = scheduler.scheduleWithFixedDelay(new Runnable() {

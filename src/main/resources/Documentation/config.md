@@ -200,7 +200,8 @@ setting:
 If a unit suffix is not specified, milliseconds is assumed.
 
 Reload the plugin on each master for the changes to take
-effect.
+effect.  NOTE: The httpd.listenURL parameter in the
+'gerrit.config' files must not contain "localhost" or "*".
 
 DEGRADED mode can be manually enabled or disabled using SSH
 commmands, "[degrade](cmd-degrade.html)" and
