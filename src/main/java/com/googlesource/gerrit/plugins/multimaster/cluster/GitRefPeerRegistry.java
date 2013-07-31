@@ -86,67 +86,36 @@ public class GitRefPeerRegistry implements PeerRegistry {
     }
   }
 
+  @Override
   public void register() throws IOException {
     Config members = getMembersFile();
-    if (members == null) {
-      members = new Config();
-    }
     MembershipLog membershipLog = membershipLogFactory.create(members);
     members = membershipLog.newJoinEvent();
-
-    RevCommit prevCommit = null;
-    Ref ref = repo.getRef(REF_NAME);
-    if (ref != null) {
-      RevWalk revWalk = new RevWalk(repo);
-      prevCommit = revWalk.parseCommit(ref.getObjectId());
-    }
-
-    ObjectInserter inserter = repo.newObjectInserter();
-    ObjectId blobId =
-        inserter.insert(Constants.OBJ_BLOB, members.toText().getBytes());
-    TreeFormatter treeFormatter = new TreeFormatter();
-    treeFormatter.append(MEMBERS_FILE_NAME, FileMode.REGULAR_FILE, blobId);
-    ObjectId treeId = treeFormatter.insertTo(inserter);
-
-    CommitBuilder commitBuilder = new CommitBuilder();
-    commitBuilder.setAuthor(gerritIdent);
-    commitBuilder.setCommitter(gerritIdent);
-    commitBuilder.setMessage("Peer joining cluster");
-    commitBuilder.setTreeId(treeId);
-    if (prevCommit != null) {
-      commitBuilder.setParentId(prevCommit.getId());
-    }
-
-    byte[] commitBytes = commitBuilder.build();
-    ObjectId commitId = inserter.insert(Constants.OBJ_COMMIT, commitBytes);
-
-    inserter.flush();
-
-    RefUpdate refUpdate = repo.updateRef(REF_NAME);
-    refUpdate.setNewObjectId(commitId);
-    RefUpdate.Result updateResult = refUpdate.forceUpdate();
-
-    while (updateResult == RefUpdate.Result.LOCK_FAILURE) {
-      updateResult = refUpdate.forceUpdate();
-    }
-
-    if (updateResult == RefUpdate.Result.REJECTED) {
+    if (!writeMembersFile(members, "Peer joining cluster")) {
       register();
-    } else if (updateResult == RefUpdate.Result.IO_FAILURE
-        || updateResult == RefUpdate.Result.NOT_ATTEMPTED) {
-      log.error("Failed to update ref");
+    }
+  }
+
+  @Override
+  public void deregister() throws IOException {
+    Config members = getMembersFile();
+    MembershipLog membershipLog = membershipLogFactory.create(members);
+    members = membershipLog.newLeaveEvent();
+    if (!writeMembersFile(members, "Peer leaving cluster")) {
+      deregister();
     }
   }
 
   /**
-   * @return the members file from refs/meta/cluster, or null if not found
+   * @return the members file from refs/meta/cluster, or a new empty
+   *         {@link Config} if not found
    * @throws IOException
    */
   @Nullable
   private Config getMembersFile() throws IOException {
     Ref ref = repo.getRef(REF_NAME);
     if (ref == null) {
-      return null;
+      return new Config();
     }
 
     RevWalk revWalk = new RevWalk(repo);
@@ -172,6 +141,62 @@ public class GitRefPeerRegistry implements PeerRegistry {
             + REF_NAME);
       }
     }
-    return null;
+    return new Config();
+  }
+
+  /**
+   * Write the members file to refs/meta/cluster
+   *
+   * @param members the members file
+   * @param commitMessage message to commit the file with
+   * @return returns false if and only if the tracking ref already existed but
+   *         its old value was not fully merged into the new value
+   * @throws IOException
+   */
+  private boolean writeMembersFile(Config members, String commitMessage)
+      throws IOException {
+    RevCommit prevCommit = null;
+    Ref ref = repo.getRef(REF_NAME);
+    if (ref != null) {
+      RevWalk revWalk = new RevWalk(repo);
+      prevCommit = revWalk.parseCommit(ref.getObjectId());
+    }
+
+    ObjectInserter inserter = repo.newObjectInserter();
+    ObjectId blobId =
+        inserter.insert(Constants.OBJ_BLOB, members.toText().getBytes());
+    TreeFormatter treeFormatter = new TreeFormatter();
+    treeFormatter.append(MEMBERS_FILE_NAME, FileMode.REGULAR_FILE, blobId);
+    ObjectId treeId = treeFormatter.insertTo(inserter);
+
+    CommitBuilder commitBuilder = new CommitBuilder();
+    commitBuilder.setAuthor(gerritIdent);
+    commitBuilder.setCommitter(gerritIdent);
+    commitBuilder.setMessage(commitMessage);
+    commitBuilder.setTreeId(treeId);
+    if (prevCommit != null) {
+      commitBuilder.setParentId(prevCommit.getId());
+    }
+
+    byte[] commitBytes = commitBuilder.build();
+    ObjectId commitId = inserter.insert(Constants.OBJ_COMMIT, commitBytes);
+
+    inserter.flush();
+
+    RefUpdate refUpdate = repo.updateRef(REF_NAME);
+    refUpdate.setNewObjectId(commitId);
+    RefUpdate.Result updateResult = refUpdate.forceUpdate();
+
+    while (updateResult == RefUpdate.Result.LOCK_FAILURE) {
+      updateResult = refUpdate.forceUpdate();
+    }
+
+    if (updateResult == RefUpdate.Result.REJECTED) {
+      return false;
+    } else if (updateResult == RefUpdate.Result.IO_FAILURE
+        || updateResult == RefUpdate.Result.NOT_ATTEMPTED) {
+      log.error("Failed to update ref");
+    }
+    return true;
   }
 }

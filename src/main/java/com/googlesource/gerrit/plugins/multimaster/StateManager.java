@@ -63,7 +63,11 @@ public class StateManager implements LifecycleListener {
 
   @Override
   public void stop() {
-    // do nothing
+    try {
+      peerRegistry.deregister();
+    } catch (IOException e) {
+      log.warn("Could not deregister self", e);
+    }
   }
 
   public MemberState getMemberState() {
