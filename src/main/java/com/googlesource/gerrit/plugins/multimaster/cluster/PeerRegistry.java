@@ -37,4 +37,11 @@ public interface PeerRegistry {
    * @throws IOException
    */
   public void register() throws IOException;
+
+  /**
+   * Register a "leave" event in the log
+   *
+   * @throws IOException
+   */
+  public void deregister() throws IOException;
 }

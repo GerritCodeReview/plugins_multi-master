@@ -43,6 +43,7 @@ public class MembershipLog {
   private static final String EVENT = "event";
   private static final String JOIN = "join";
   private static final String JOINED = "joined";
+  private static final String LEAVE = "leave";
 
   private static final Logger log = LoggerFactory
       .getLogger(MembershipLog.class);
@@ -90,12 +91,12 @@ public class MembershipLog {
     String eventId = String.format("%d.%d", currentGeneration, lastId + 1);
 
     Config newEventSection = new Config();
-    addEvent(newEventSection, eventId);
+    addEvent(newEventSection, eventId, JOIN);
     try {
       logFile.fromText(newEventSection.toText() + logFile.toText());
     } catch (ConfigInvalidException e) {
       log.warn("Could not place sections in order", e);
-      addEvent(logFile, eventId);
+      addEvent(logFile, eventId, JOIN);
     }
     logFile.setString(MEMBER, selfId, JOINED, eventId);
 
@@ -103,8 +104,25 @@ public class MembershipLog {
     return logFile;
   }
 
-  private void addEvent(Config cfg, String eventId) {
+  public Config newLeaveEvent() {
+    String eventId = String.format("%d.%d", currentGeneration, lastId + 1);
+
+    Config newEventSection = new Config();
+    addEvent(newEventSection, eventId, LEAVE);
+    try {
+      logFile.fromText(newEventSection.toText() + logFile.toText());
+    } catch (ConfigInvalidException e) {
+      log.warn("Could not place sections in order", e);
+      addEvent(logFile, eventId, LEAVE);
+    }
+    logFile.unsetSection(MEMBER, selfId);
+
+    lastId++;
+    return logFile;
+  }
+
+  private void addEvent(Config cfg, String eventId, String eventType) {
     cfg.setString(EVENT, eventId, MEMBER, selfId);
-    cfg.setString(EVENT, eventId, JOIN, members.toString());
+    cfg.setString(EVENT, eventId, eventType, members.toString());
   }
 }
