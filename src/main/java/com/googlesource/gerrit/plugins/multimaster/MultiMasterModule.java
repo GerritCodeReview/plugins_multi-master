@@ -29,21 +29,34 @@ package com.googlesource.gerrit.plugins.multimaster;
 
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.extensions.events.LifecycleListener;
+import com.google.gerrit.server.config.AllProjectsName;
+import com.google.gerrit.server.config.AllProjectsNameProvider;
+import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.config.SitePaths;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.google.inject.Provides;
+import com.google.inject.Scopes;
+import com.google.inject.assistedinject.FactoryModuleBuilder;
 import com.google.inject.internal.UniqueAnnotations;
+
+import com.googlesource.gerrit.plugins.multimaster.cluster.GitRefPeerRegistry;
+import com.googlesource.gerrit.plugins.multimaster.cluster.MembershipLogFactory;
+import com.googlesource.gerrit.plugins.multimaster.cluster.PeerRegistry;
+import com.googlesource.gerrit.plugins.multimaster.cluster.SelfId;
 
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.storage.file.FileBasedConfig;
 import org.eclipse.jgit.util.FS;
+import org.eclipse.jgit.util.SystemReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class MultiMasterModule extends AbstractModule {
   private static final Logger log = LoggerFactory
@@ -52,10 +65,61 @@ public class MultiMasterModule extends AbstractModule {
   @Inject
   private SitePaths site;
 
+  @Inject
+  @GerritServerConfig
+  Config config;
+
   @Override
   protected void configure() {
+    String peerId = getPeerId();
+    if (peerId == null) {
+      log.warn("Cannot contruct peer ID from httpd.listenURL"
+          + "; do not use \"localhost\" or \"*\" as hostname."
+          + " Membership log usage will be disabled.");
+    } else {
+      bind(String.class).annotatedWith(SelfId.class).toInstance(peerId);
+
+      install(new FactoryModuleBuilder().build(MembershipLogFactory.class));
+      bind(AllProjectsName.class).toProvider(AllProjectsNameProvider.class).in(
+          Scopes.SINGLETON);
+      bind(PeerRegistry.class).to(GitRefPeerRegistry.class);
+
+      bind(LifecycleListener.class).annotatedWith(UniqueAnnotations.create())
+          .to(StateManager.class);
+    }
     bind(LifecycleListener.class).annotatedWith(UniqueAnnotations.create()).to(
         CacheFlusher.class);
+  }
+
+  private String getPeerId() {
+    String url = config.getString("httpd", null, "listenUrl");
+    if (url != null) {
+      URI u;
+      try {
+        u = new URI(url);
+      } catch (URISyntaxException e) {
+        return null;
+      }
+      if (u.getHost() == null || u.getHost().equals("localhost")) {
+        String hostname = SystemReader.getInstance().getHostname();
+        if (hostname.equals("localhost")) {
+          return null;
+        }
+        String oldHostname = "";
+        if (u.getAuthority().equals("*") || u.getAuthority().startsWith("*:")) {
+          oldHostname = "*";
+        } else if (u.getHost().equals("localhost")) {
+          oldHostname = "localhost";
+        } else {
+          return null;
+        }
+        final int s = url.indexOf(oldHostname);
+        url =
+            url.substring(0, s) + hostname
+                + url.substring(s + oldHostname.length());
+      }
+    }
+    return url;
   }
 
   @Provides
