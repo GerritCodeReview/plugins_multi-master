@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9312a30c_3318c838",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2013-08-01T16:35:02Z",
+      "side": 1,
+      "message": "s/backend/backends/  (DB and repos)",
+      "revId": "956f08402968a0a7a8032459c6a5494e08ca26c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3aa47ea_b2967836",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2013-08-01T16:35:02Z",
+      "side": 1,
+      "message": "Let\u0027s explain that any jgit supported shared back end would work.  NFS is just a sample back end.",
+      "revId": "956f08402968a0a7a8032459c6a5494e08ca26c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9312a30c_f31db02b",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2013-08-01T16:35:02Z",
+      "side": 1,
+      "message": "Since in theory these different instances might be actually running on different servers (if using NFS), then they don\u0027t actually need to run on a different \u003cport\u003e, but rather a different \u003cip\u003e:\u003cport\u003e combination.  Same for http.",
+      "revId": "956f08402968a0a7a8032459c6a5494e08ca26c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3775f7c_1622fcba",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2013-08-01T16:35:02Z",
+      "side": 1,
+      "message": "What about \"included\" groups, are they also affected by caches?",
+      "revId": "956f08402968a0a7a8032459c6a5494e08ca26c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b371678e_d43ebcd2",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2013-08-01T16:35:02Z",
+      "side": 1,
+      "message": "s/would/will (I don\u0027t think want the subjunctive here)",
+      "revId": "956f08402968a0a7a8032459c6a5494e08ca26c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9312a30c_d322346b",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2013-08-01T16:35:02Z",
+      "side": 1,
+      "message": "s/out/in or out/",
+      "revId": "956f08402968a0a7a8032459c6a5494e08ca26c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b371678e_f443b849",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2013-08-01T16:35:02Z",
+      "side": 1,
+      "message": "s/out/in or out/",
+      "revId": "956f08402968a0a7a8032459c6a5494e08ca26c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
