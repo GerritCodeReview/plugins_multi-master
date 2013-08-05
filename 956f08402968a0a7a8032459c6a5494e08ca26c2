@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "58d688dc_91031c21",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2013-08-05T14:58:07Z",
+      "side": 1,
+      "message": "I find the whole statement is confusing:\n\n* what is not simple naive setup with different host:port combination?\n* when Multi Master (for the same site) is not sharing the same database and Git repository?\n\nMulti Master functionality relies on Gerrit\u0027s underlying technology that are currently supported. You probably mean, that gwtorm doesn\u0027t support Apache Cassandra/Hadoop distributed No-SQL database atm. But even if it would, it would be still the same database. The same holds true for Git storage: when distributed file system is supported, then it is still the same repository.",
+      "revId": "956f08402968a0a7a8032459c6a5494e08ca26c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3aa47ea_b2967836",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
