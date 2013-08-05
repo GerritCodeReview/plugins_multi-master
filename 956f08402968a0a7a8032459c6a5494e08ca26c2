@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "3858f440_88a317dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2013-08-05T15:40:55Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t understand your questions?  I think we have another PS coming to clarify this message a bit, maybe it will help.\n\nBut just so you know, multi-site multi-master as implemented by google does not share a common set of backend repositories.  They are separate and there is replication between them.  They do not appear as the same filesystem to each site.  Also, each site has its own ref db, so that db is not shared amongst the sites, I believe that jgit has to manage them and keep them in sync.  So, in those cases, it is not a simple matter of having some magic backend that appears the same on all sites, jgit/gerrit is actually involved with making the distributed backends consistent.  \n\nThis approach is nothing like that, it is currently just the most naive setup possible.  The intent of this series is to start with the most naive setup possible and to document its issues before slowly proposing solutions to each issue.",
+      "parentUuid": "58d688dc_91031c21",
+      "revId": "956f08402968a0a7a8032459c6a5494e08ca26c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3aa47ea_b2967836",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
