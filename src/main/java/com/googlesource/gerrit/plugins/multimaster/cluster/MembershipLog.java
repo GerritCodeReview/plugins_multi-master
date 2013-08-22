@@ -125,4 +125,8 @@ public class MembershipLog {
     cfg.setString(EVENT, eventId, MEMBER, selfId);
     cfg.setString(EVENT, eventId, eventType, members.toString());
   }
+
+  public int getMembership() {
+    return members.size();
+  }
 }
