@@ -188,6 +188,11 @@ config, `<site>/etc/multimaster.config`:
 ```
   [cache]
     flushRate = <value>     # "1 second" would be reasonable
+  [cluster]
+    membershipQueryRate = <value>
+    # This parameter is used to toggle the DEGRADED state in
+      auto mode (see [auto-degrade](cmd-auto-degrade.html)
+      for more info). It is optional - default is 5 seconds.
 ```
 
 Values should use common unit suffixes to express their
@@ -203,8 +208,9 @@ Reload the plugin on each master for the changes to take
 effect.  NOTE: The httpd.listenURL parameter in the
 'gerrit.config' files must not contain "localhost" or "*".
 
-DEGRADED mode can be manually enabled or disabled using SSH
-commmands, "[degrade](cmd-degrade.html)" and
+DEGRADED mode can be manually enabled or set to
+automatically toggle, using SSH commmands,
+"[degrade](cmd-degrade.html)" and
 "[auto-degrade](cmd-auto-degrade.html)".
 
 Web Sessions

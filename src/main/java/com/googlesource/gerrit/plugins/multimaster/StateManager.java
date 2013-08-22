@@ -28,15 +28,20 @@
 package com.googlesource.gerrit.plugins.multimaster;
 
 import com.google.gerrit.extensions.events.LifecycleListener;
+import com.google.gerrit.server.config.ConfigUtil;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 import com.googlesource.gerrit.plugins.multimaster.cluster.PeerRegistry;
 
+import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 @Singleton
 public class StateManager implements LifecycleListener {
@@ -44,12 +49,20 @@ public class StateManager implements LifecycleListener {
 
   private volatile MemberState state;
   private volatile boolean flushed;
+  private int clusterMembership;
+  private long membershipQueryRate;
+
   private PeerRegistry peerRegistry;
+  private final ScheduledExecutorService scheduler;
 
   @Inject
-  public StateManager(PeerRegistry peerRegistry) {
+  public StateManager(PeerRegistry peerRegistry, @MultiMasterConfig Config cfg) {
     state = new MemberState(false);
     this.peerRegistry = peerRegistry;
+    scheduler = Executors.newSingleThreadScheduledExecutor();
+    membershipQueryRate =
+        ConfigUtil.getTimeUnit(cfg, "cluster", null, "membershipQueryRate",
+            5000, TimeUnit.MILLISECONDS);
   }
 
   @Override
@@ -59,6 +72,20 @@ public class StateManager implements LifecycleListener {
     } catch (IOException e) {
       log.warn("Could not register self", e);
     }
+    scheduler.scheduleWithFixedDelay(new Runnable() {
+      @Override
+      public void run() {
+        try {
+          clusterMembership = peerRegistry.getMembership();
+          log.warn("membership: " + clusterMembership);
+          if (clusterMembership > 1) {
+            flushed = false;
+          }
+        } catch (IOException e) {
+          log.warn("Could not query membership", e);
+        }
+      }
+    }, 0, membershipQueryRate, TimeUnit.MILLISECONDS);
   }
 
   @Override
@@ -68,6 +95,8 @@ public class StateManager implements LifecycleListener {
     } catch (IOException e) {
       log.warn("Could not deregister self", e);
     }
+
+    scheduler.shutdownNow();
   }
 
   public MemberState getMemberState() {
@@ -95,7 +124,7 @@ public class StateManager implements LifecycleListener {
 
     public boolean isDegraded() {
       if (auto) {
-        return !flushed;
+        return clusterMembership > 1 || !flushed;
       }
       return true;
     }

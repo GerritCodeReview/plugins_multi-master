@@ -44,4 +44,11 @@ public interface PeerRegistry {
    * @throws IOException
    */
   public void deregister() throws IOException;
+
+  /**
+   * Get the number of members registered in the log
+   *
+   * @throws IOException
+   */
+  public int getMembership() throws IOException;
 }
