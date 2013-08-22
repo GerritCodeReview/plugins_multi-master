@@ -106,6 +106,13 @@ public class GitRefPeerRegistry implements PeerRegistry {
     }
   }
 
+  @Override
+  public int getMembership() throws IOException {
+    Config members = getMembersFile();
+    MembershipLog membershipLog = membershipLogFactory.create(members);
+    return membershipLog.getMembership();
+  }
+
   /**
    * @return the members file from refs/meta/cluster, or a new empty
    *         {@link Config} if not found
