@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "849dff27_bb15e753",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-09-19T18:23:35Z",
+      "side": 1,
+      "message": "What is the licensing situation here, are you really contributing on behalf of the Linux foundation?",
+      "revId": "4fb204d876623eb28e52ce9b79752b6fc27236da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "443a27c6_11bcecfb",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-09-19T18:23:35Z",
+      "side": 1,
+      "message": "Nit: be consistent between 2/two",
+      "range": {
+        "startLine": 32,
+        "startChar": 34,
+        "endLine": 32,
+        "endChar": 37
+      },
+      "revId": "4fb204d876623eb28e52ce9b79752b6fc27236da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "849dff27_5b3063fc",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-09-19T18:23:35Z",
+      "side": 1,
+      "message": "Nit: JGit",
+      "range": {
+        "startLine": 46,
+        "startChar": 13,
+        "endLine": 46,
+        "endChar": 17
+      },
+      "revId": "4fb204d876623eb28e52ce9b79752b6fc27236da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "443a27c6_f1b04822",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-09-19T18:23:35Z",
+      "side": 1,
+      "message": "Show, don\u0027t tell:\n\n  $ java -jar {path/}gerrit.war init --batch\n  $ git config -f \u003csite1\u003e/etc/gerrit.config gerrit.basePath /path/to/nfs/git\n\nThis also underscores that this is really no different from the local filesystem case, except the value of gerrit.basePath will be different.",
+      "revId": "4fb204d876623eb28e52ce9b79752b6fc27236da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "849dff27_7b351feb",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-09-19T18:23:35Z",
+      "side": 1,
+      "message": "I still like the show-don\u0027t-tell approach but I\u0027ll admit it\u0027s a bit harder to come up with a globally acceptable example for \"anything but H2\".",
+      "revId": "4fb204d876623eb28e52ce9b79752b6fc27236da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "443a27c6_d1ad44c6",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-09-19T18:23:35Z",
+      "side": 1,
+      "message": "I think you could be more explicit about what \"pointing\" means. You could do this more or less automatically: write a simple redirector server to run at review.mysite.com that hashes the IP or some cookie to determine which of reviewN.mysite.com to send them to, and issue a 302.\n\nNote that this approach so far provides only load balancing and no redundancy. However, once you have a load balancer program it\u0027s easy to tweak the strategy to achieve redundancy as well, it just has to have an idea of which servers are live.",
+      "revId": "4fb204d876623eb28e52ce9b79752b6fc27236da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
