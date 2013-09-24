@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e4debb26_de18258c",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2013-09-24T06:51:58Z",
+      "side": 1,
+      "message": "Documentation files don\u0027t usually have any copyright header.\n\nAnd shouldn\u0027t the copyright be \"The Android Open Source Project\"?",
+      "parentUuid": "849dff27_bb15e753",
+      "revId": "4fb204d876623eb28e52ce9b79752b6fc27236da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "443a27c6_11bcecfb",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
