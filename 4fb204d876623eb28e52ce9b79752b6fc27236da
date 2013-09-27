@@ -131,6 +131,24 @@
       "revId": "4fb204d876623eb28e52ce9b79752b6fc27236da",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "241613dd_d8f70dbc",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2013-09-27T19:36:12Z",
+      "side": 1,
+      "message": "This whole section is about not sharing web sessions.  I don\u0027t know how you can use an LB without sharing web sessions currently.   The first actual code we plan to provide with this plugin is the ability to share web sessions.  We will add a whole new section to this doc then to explain how this can be done.  But until then, I don\u0027t think what you are suggesting makes sense?",
+      "parentUuid": "443a27c6_d1ad44c6",
+      "revId": "4fb204d876623eb28e52ce9b79752b6fc27236da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
