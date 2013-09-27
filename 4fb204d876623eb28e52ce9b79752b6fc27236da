@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "241613dd_980195d3",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1012297
+      },
+      "writtenOn": "2013-09-27T20:37:14Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "e4debb26_de18258c",
+      "revId": "4fb204d876623eb28e52ce9b79752b6fc27236da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "443a27c6_11bcecfb",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
@@ -54,6 +72,24 @@
         "endLine": 32,
         "endChar": 37
       },
+      "revId": "4fb204d876623eb28e52ce9b79752b6fc27236da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "241613dd_18d2654c",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1012297
+      },
+      "writtenOn": "2013-09-27T20:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "443a27c6_11bcecfb",
       "revId": "4fb204d876623eb28e52ce9b79752b6fc27236da",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -83,6 +119,24 @@
     },
     {
       "key": {
+        "uuid": "241613dd_78c5a180",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1012297
+      },
+      "writtenOn": "2013-09-27T20:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "849dff27_5b3063fc",
+      "revId": "4fb204d876623eb28e52ce9b79752b6fc27236da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "443a27c6_f1b04822",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
@@ -100,6 +154,24 @@
     },
     {
       "key": {
+        "uuid": "844dff11_3b45d71f",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1012297
+      },
+      "writtenOn": "2013-09-27T20:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "443a27c6_f1b04822",
+      "revId": "4fb204d876623eb28e52ce9b79752b6fc27236da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "849dff27_7b351feb",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
@@ -111,6 +183,24 @@
       "writtenOn": "2013-09-19T18:23:35Z",
       "side": 1,
       "message": "I still like the show-don\u0027t-tell approach but I\u0027ll admit it\u0027s a bit harder to come up with a globally acceptable example for \"anything but H2\".",
+      "revId": "4fb204d876623eb28e52ce9b79752b6fc27236da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "241613dd_b806d9e6",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1012297
+      },
+      "writtenOn": "2013-09-27T20:37:14Z",
+      "side": 1,
+      "message": "I added the line where it asks for the sql database to make this clearer",
+      "parentUuid": "849dff27_7b351feb",
       "revId": "4fb204d876623eb28e52ce9b79752b6fc27236da",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
