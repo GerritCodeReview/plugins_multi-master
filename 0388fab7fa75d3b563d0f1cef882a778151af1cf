@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a49843f6_bce6815c",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2013-10-01T01:58:11Z",
+      "side": 1,
+      "message": "We probably shouldn\u0027t prefix gerrit\u0027s output with #s.",
+      "revId": "0388fab7fa75d3b563d0f1cef882a778151af1cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a49843f6_9ce1c549",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2013-10-01T01:58:11Z",
+      "side": 1,
+      "message": "/path/to/NFS/git also?",
+      "revId": "0388fab7fa75d3b563d0f1cef882a778151af1cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a49843f6_dceb4d23",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2013-10-01T01:58:11Z",
+      "side": 1,
+      "message": "We should probably show the gerrit question and a sample answer here an for the ssh stuff below also.",
+      "revId": "0388fab7fa75d3b563d0f1cef882a778151af1cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
