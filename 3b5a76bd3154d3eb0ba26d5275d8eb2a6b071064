@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c174497d_95328401",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2013-10-10T16:11:02Z",
+      "side": 1,
+      "message": "A sample \u003chaproxy_config\u003e file for HAProxy:?\n\nTo emphasize that the lines 332-352 are from HAProxy config and not from Gerrit\u0027s `gerrit.config` (quoted on line 322).",
+      "revId": "3b5a76bd3154d3eb0ba26d5275d8eb2a6b071064",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
