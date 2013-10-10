@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "215e05fe_7813216c",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1012297
+      },
+      "writtenOn": "2013-10-10T15:37:38Z",
+      "side": 1,
+      "message": "It had been requested by Martin in our local version of this change.",
+      "parentUuid": "0163c1c4_97328401",
+      "revId": "b98ac0c5825552058774c48db986fe8332a6d3bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "215e05fe_3819a98e",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2013-10-10T09:55:11Z",
       "side": 1,
       "message": "Trailing whitespace.",
+      "revId": "b98ac0c5825552058774c48db986fe8332a6d3bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0163c1c4_f741004a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1012297
+      },
+      "writtenOn": "2013-10-10T15:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "215e05fe_3819a98e",
       "revId": "b98ac0c5825552058774c48db986fe8332a6d3bf",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -64,6 +100,42 @@
       "writtenOn": "2013-10-10T10:31:37Z",
       "side": 1,
       "message": "The link is wrong: s/lwt/1wt/",
+      "revId": "b98ac0c5825552058774c48db986fe8332a6d3bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "215e05fe_9832b501",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1012297
+      },
+      "writtenOn": "2013-10-10T15:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c174497d_f5065830",
+      "revId": "b98ac0c5825552058774c48db986fe8332a6d3bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "215e05fe_b83779f0",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1012297
+      },
+      "writtenOn": "2013-10-10T15:37:38Z",
+      "side": 1,
+      "message": "I\u0027m don\u0027t believe so.  line 329 is introducing a sample setup using HAProxy.  This section covers more information on using HAProxy and so I believe this link belongs here. One could make the argument that the link on 358 could contain this link as well, though I believe that would then miss the information we offer here. Thoughts?",
+      "parentUuid": "0163c1c4_b73788f0",
       "revId": "b98ac0c5825552058774c48db986fe8332a6d3bf",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
