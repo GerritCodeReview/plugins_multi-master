@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0163c1c4_97328401",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2013-10-10T09:55:11Z",
+      "side": 1,
+      "message": "It would perhaps be better to put formatting cleanup in a separate commit.",
+      "revId": "b98ac0c5825552058774c48db986fe8332a6d3bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "215e05fe_3819a98e",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2013-10-10T09:55:11Z",
+      "side": 1,
+      "message": "Trailing whitespace.",
+      "revId": "b98ac0c5825552058774c48db986fe8332a6d3bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0163c1c4_b73788f0",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2013-10-10T09:55:11Z",
+      "side": 1,
+      "message": "Better to put this link on the first mention of HAProxy at line 329?",
+      "revId": "b98ac0c5825552058774c48db986fe8332a6d3bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
