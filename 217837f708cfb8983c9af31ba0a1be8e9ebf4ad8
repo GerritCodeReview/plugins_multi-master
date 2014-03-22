@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c0769cb_779b50a6",
+        "filename": "src/main/resources/Documentation/cmd-auto-degrade.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2014-03-22T06:56:13Z",
+      "side": 1,
+      "message": "nit: not enough \u003d here.",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "217837f708cfb8983c9af31ba0a1be8e9ebf4ad8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c026dbc_9868d5cd",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2014-03-22T06:56:13Z",
+      "side": 1,
+      "message": "Why are two separate commands needed?  Why not have a single command that can both enable and disable it?",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 40
+      },
+      "revId": "217837f708cfb8983c9af31ba0a1be8e9ebf4ad8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
