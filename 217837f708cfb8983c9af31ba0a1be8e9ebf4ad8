@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "5c0769cb_b7ce88a3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/multimaster/commands/EnableAutoMode.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-03-22T11:23:00Z",
+      "side": 1,
+      "message": "You need to provie plugin context here:\n\n  @RequiresCapability(GlobalCapability.ADMINISTRATE_SERVER,\n  scope \u003d CapabilityScope.CORE)\n\nOtherwise the plugin owned capability would be used and not the core one.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 57
+      },
+      "revId": "217837f708cfb8983c9af31ba0a1be8e9ebf4ad8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c0769cb_97d38449",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/multimaster/commands/EnableAutoMode.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-03-22T11:23:00Z",
+      "side": 1,
+      "message": "This was deprecated and even removed, use description instead.",
+      "range": {
+        "startLine": 39,
+        "startChar": 40,
+        "endLine": 39,
+        "endChar": 45
+      },
+      "revId": "217837f708cfb8983c9af31ba0a1be8e9ebf4ad8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c026dbc_98ba95e9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/multimaster/commands/EnableDegradedMode.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-03-22T11:23:00Z",
+      "side": 1,
+      "message": "same here:\n\n  @RequiresCapability(GlobalCapability.ADMINISTRATE_SERVER,\n  scope \u003d CapabilityScope.CORE)",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 57
+      },
+      "revId": "217837f708cfb8983c9af31ba0a1be8e9ebf4ad8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c026dbc_f8af51a9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/multimaster/commands/EnableDegradedMode.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-03-22T11:23:00Z",
+      "side": 1,
+      "message": "This was deprecated and even removed, use description instead.",
+      "range": {
+        "startLine": 39,
+        "startChar": 35,
+        "endLine": 39,
+        "endChar": 40
+      },
+      "revId": "217837f708cfb8983c9af31ba0a1be8e9ebf4ad8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c0769cb_779b50a6",
         "filename": "src/main/resources/Documentation/cmd-auto-degrade.md",
         "patchSetId": 2
