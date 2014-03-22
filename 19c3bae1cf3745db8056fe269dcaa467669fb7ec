@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c026dbc_789b41a6",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2014-03-22T06:38:10Z",
+      "side": 1,
+      "message": "see ps2 comment",
+      "revId": "19c3bae1cf3745db8056fe269dcaa467669fb7ec",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
