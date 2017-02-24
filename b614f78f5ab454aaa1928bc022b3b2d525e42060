@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f96f88bb_aa656e87",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-02-24T01:31:10Z",
+      "side": 1,
+      "message": "It might be worth describing the process here.  I.e. that the sync-index-plugin branch is force-pushed from content of the sync-index plugin, mentioning its sha1, and that this merge commit reworks the structure to allow the multimaster plugin to contain all the existing plugins.",
+      "revId": "b614f78f5ab454aaa1928bc022b3b2d525e42060",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
