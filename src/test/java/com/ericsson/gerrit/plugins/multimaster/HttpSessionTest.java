@@ -25,7 +25,7 @@ import static org.mockito.Mockito.when;
 import com.ericsson.gerrit.plugins.multimaster.Configuration;
 import com.ericsson.gerrit.plugins.multimaster.HttpClientProvider;
 import com.ericsson.gerrit.plugins.multimaster.HttpSession;
-import com.ericsson.gerrit.plugins.multimaster.IndexResponseHandler.IndexResult;
+import com.ericsson.gerrit.plugins.multimaster.HttpResponseHandler.HttpResult;
 import com.github.tomakehurst.wiremock.http.Fault;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.github.tomakehurst.wiremock.stubbing.Scenario;
@@ -98,7 +98,7 @@ public class HttpSessionTest {
     wireMockRule.givenThat(post(urlEqualTo(ENDPOINT))
         .willReturn(aResponse().withStatus(UNAUTHORIZED).withBody(expected)));
 
-    IndexResult result = httpSession.post(ENDPOINT);
+    HttpResult result = httpSession.post(ENDPOINT);
     assertThat(result.isSuccessful()).isFalse();
     assertThat(result.getMessage()).isEqualTo(expected);
   }
@@ -109,7 +109,7 @@ public class HttpSessionTest {
     wireMockRule.givenThat(post(urlEqualTo(ENDPOINT))
         .willReturn(aResponse().withStatus(NOT_FOUND).withBody(expected)));
 
-    IndexResult result = httpSession.post(ENDPOINT);
+    HttpResult result = httpSession.post(ENDPOINT);
     assertThat(result.isSuccessful()).isFalse();
     assertThat(result.getMessage()).isEqualTo(expected);
   }
@@ -131,7 +131,7 @@ public class HttpSessionTest {
     wireMockRule.givenThat(post(urlEqualTo(ENDPOINT))
         .willReturn(aResponse().withStatus(ERROR).withBody(ERROR_MESSAGE)));
 
-    IndexResult result = httpSession.post(ENDPOINT);
+    HttpResult result = httpSession.post(ENDPOINT);
     assertThat(result.isSuccessful()).isFalse();
     assertThat(result.getMessage()).isEqualTo(ERROR_MESSAGE);
   }

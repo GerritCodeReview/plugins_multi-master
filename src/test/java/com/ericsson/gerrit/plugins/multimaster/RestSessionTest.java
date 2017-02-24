@@ -23,7 +23,7 @@ import com.google.common.base.Joiner;
 
 import com.ericsson.gerrit.plugins.multimaster.HttpSession;
 import com.ericsson.gerrit.plugins.multimaster.RestSession;
-import com.ericsson.gerrit.plugins.multimaster.IndexResponseHandler.IndexResult;
+import com.ericsson.gerrit.plugins.multimaster.HttpResponseHandler.HttpResult;
 
 import org.junit.Test;
 
@@ -92,7 +92,7 @@ public class RestSessionTest {
         doThrow(new IOException()).when(httpSession).delete(request);
       }
     } else {
-      IndexResult result = new IndexResult(isOperationSuccessful, msg);
+      HttpResult result = new HttpResult(isOperationSuccessful, msg);
       if (operation.equals(INDEX_OP)) {
         when(httpSession.post(request)).thenReturn(result);
       } else {
