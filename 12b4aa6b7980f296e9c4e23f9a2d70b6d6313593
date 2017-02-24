@@ -34,6 +34,24 @@
       "revId": "12b4aa6b7980f296e9c4e23f9a2d70b6d6313593",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "183a557e_73367467",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/multimaster/EventForwarder.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2017-02-24T18:12:57Z",
+      "side": 1,
+      "message": "FYI: I am working on another change to reorganize the packages so not all the classes are in the same package.",
+      "parentUuid": "e92d6f40_e77a3108",
+      "revId": "12b4aa6b7980f296e9c4e23f9a2d70b6d6313593",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
