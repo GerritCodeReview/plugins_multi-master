@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6617a9a7_338fb0b2",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/multimaster/EventForwarder.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2017-02-24T18:03:26Z",
+      "side": 1,
+      "message": "Will this class contain the events defined for the other two sync* plugins?",
+      "revId": "12b4aa6b7980f296e9c4e23f9a2d70b6d6313593",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
