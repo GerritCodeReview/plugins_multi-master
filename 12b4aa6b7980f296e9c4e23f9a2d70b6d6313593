@@ -146,6 +146,30 @@
       "revId": "12b4aa6b7980f296e9c4e23f9a2d70b6d6313593",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52a3709f_fc8b56ea",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/multimaster/EventForwarder.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2017-02-27T11:54:33Z",
+      "side": 1,
+      "message": "Yes, that is correct but the plan is support more than 2 masters eventually.\n\nThe first \"mode\" that will be supported is \"failover\", one active/one passive. This mode is already supported using the 4 plugins. Once I am done merging them, I want to add support for \"cluster\" mode where all master will be active and co-located. And last but not least, the third mode would be multiple clusters.",
+      "parentUuid": "4d27fefb_db448f78",
+      "range": {
+        "startLine": 23,
+        "startChar": 40,
+        "endLine": 23,
+        "endChar": 56
+      },
+      "revId": "12b4aa6b7980f296e9c4e23f9a2d70b6d6313593",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
