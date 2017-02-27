@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a321893_98900d15",
+        "filename": "lib/BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2017-02-27T18:58:25Z",
+      "side": 1,
+      "message": "this file is not needed",
+      "revId": "02c34be7e9886ae07693bd637475d527ca74859f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
