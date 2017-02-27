@@ -18,7 +18,7 @@ import com.google.gerrit.lifecycle.LifecycleModule;
 import com.google.inject.Scopes;
 
 import com.ericsson.gerrit.plugins.multimaster.event.EventModule;
-import com.ericsson.gerrit.plugins.multimaster.forwarder.rest.RestEventForwarderModule;
+import com.ericsson.gerrit.plugins.multimaster.forwarder.rest.RestForwarderModule;
 import com.ericsson.gerrit.plugins.multimaster.index.IndexModule;
 
 class Module extends LifecycleModule {
@@ -26,7 +26,7 @@ class Module extends LifecycleModule {
   @Override
   protected void configure() {
     bind(Configuration.class).in(Scopes.SINGLETON);
-    install(new RestEventForwarderModule());
+    install(new RestForwarderModule());
     install(new EventModule());
     install(new IndexModule());
   }

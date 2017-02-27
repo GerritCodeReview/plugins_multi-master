@@ -24,7 +24,7 @@ import com.google.gerrit.server.events.RefEvent;
 
 import com.ericsson.gerrit.plugins.multimaster.event.EventHandler;
 import com.ericsson.gerrit.plugins.multimaster.forwarder.Context;
-import com.ericsson.gerrit.plugins.multimaster.forwarder.EventForwarder;
+import com.ericsson.gerrit.plugins.multimaster.forwarder.Forwarder;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,13 +40,13 @@ public class EventHandlerTest {
   private Event event;
   private EventHandler eventHandler;
   @Mock
-  private EventForwarder eventForwarder;
+  private Forwarder forwarder;
 
   @Test
   public void testRightEventAndNotForwarded() throws Exception {
     setUpMocks(true);
     eventHandler.onEvent(event);
-    verify(eventForwarder).send(event);
+    verify(forwarder).send(event);
   }
 
   @Test
@@ -55,14 +55,14 @@ public class EventHandlerTest {
     Context.setForwardedEvent(true);
     eventHandler.onEvent(event);
     Context.unsetForwardedEvent();
-    verifyZeroInteractions(eventForwarder);
+    verifyZeroInteractions(forwarder);
   }
 
   @Test
   public void testBadEventAndNotForwarded() throws Exception {
     setUpMocks(false);
     eventHandler.onEvent(event);
-    verifyZeroInteractions(eventForwarder);
+    verifyZeroInteractions(forwarder);
   }
 
   @Test
@@ -71,7 +71,7 @@ public class EventHandlerTest {
     Context.setForwardedEvent(true);
     eventHandler.onEvent(event);
     Context.unsetForwardedEvent();
-    verifyZeroInteractions(eventForwarder);
+    verifyZeroInteractions(forwarder);
   }
 
   private void setUpMocks(boolean rightEvent) {
@@ -81,7 +81,7 @@ public class EventHandlerTest {
     } else {
       event = mock(Event.class);
     }
-    eventHandler = new EventHandler(eventForwarder, pool, PLUGIN_NAME);
+    eventHandler = new EventHandler(forwarder, pool, PLUGIN_NAME);
   }
 
   private class PoolMock extends ScheduledThreadPoolExecutor {
