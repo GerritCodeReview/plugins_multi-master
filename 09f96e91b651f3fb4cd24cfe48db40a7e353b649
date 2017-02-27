@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66e9e1cf_9cfb71dc",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/multimaster/Configuration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-02-27T23:49:51Z",
+      "side": 1,
+      "message": "In a separate change we should wrap these calls to getInt in a method that handles exceptions (i.e. when it\u0027s configured with a non-integer value).",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 68
+      },
+      "revId": "09f96e91b651f3fb4cd24cfe48db40a7e353b649",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
