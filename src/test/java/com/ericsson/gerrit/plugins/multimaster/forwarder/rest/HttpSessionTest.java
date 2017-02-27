@@ -16,6 +16,7 @@ package com.ericsson.gerrit.plugins.multimaster.forwarder.rest;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.delete;
+import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.google.common.truth.Truth.assertThat;
@@ -23,13 +24,10 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import com.ericsson.gerrit.plugins.multimaster.Configuration;
-import com.ericsson.gerrit.plugins.multimaster.forwarder.rest.HttpClientProvider;
-import com.ericsson.gerrit.plugins.multimaster.forwarder.rest.HttpSession;
 import com.ericsson.gerrit.plugins.multimaster.forwarder.rest.HttpResponseHandler.HttpResult;
 import com.github.tomakehurst.wiremock.http.Fault;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.github.tomakehurst.wiremock.stubbing.Scenario;
-
 
 import org.junit.Before;
 import org.junit.ClassRule;
@@ -47,6 +45,7 @@ public class HttpSessionTest {
   private static final int UNAUTHORIZED = 401;
 
   private static final String ENDPOINT = "/plugins/multi-master/index/1";
+  private static final String BODY = "SerializedEvent";
   private static final String ERROR_MESSAGE = "Error message";
   private static final String REQUEST_MADE = "Request made";
   private static final String SECOND_TRY = "Second try";
@@ -82,6 +81,13 @@ public class HttpSessionTest {
         .willReturn(aResponse().withStatus(OK)));
 
     assertThat(httpSession.post(ENDPOINT).isSuccessful()).isTrue();
+  }
+
+  @Test
+  public void testPostResponseWithContentOK() throws Exception {
+    wireMockRule.givenThat(post(urlEqualTo(ENDPOINT))
+        .withRequestBody(equalTo(BODY)).willReturn(aResponse().withStatus(OK)));
+    assertThat(httpSession.post(ENDPOINT, BODY).isSuccessful()).isTrue();
   }
 
   @Test
