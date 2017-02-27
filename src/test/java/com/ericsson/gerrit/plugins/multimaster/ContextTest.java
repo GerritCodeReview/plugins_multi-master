@@ -16,7 +16,7 @@ package com.ericsson.gerrit.plugins.multimaster;
 
 import static com.google.common.truth.Truth.assertThat;
 
-import com.ericsson.gerrit.plugins.multimaster.Context;
+import com.ericsson.gerrit.plugins.multimaster.forwarder.Context;
 
 import org.junit.Test;
 

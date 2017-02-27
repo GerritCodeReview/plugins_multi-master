@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.ericsson.gerrit.plugins.multimaster;
+package com.ericsson.gerrit.plugins.multimaster.forwarder.rest;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.delete;
@@ -23,9 +23,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import com.ericsson.gerrit.plugins.multimaster.Configuration;
-import com.ericsson.gerrit.plugins.multimaster.HttpClientProvider;
-import com.ericsson.gerrit.plugins.multimaster.HttpSession;
-import com.ericsson.gerrit.plugins.multimaster.HttpResponseHandler.HttpResult;
+import com.ericsson.gerrit.plugins.multimaster.forwarder.rest.HttpClientProvider;
+import com.ericsson.gerrit.plugins.multimaster.forwarder.rest.HttpSession;
+import com.ericsson.gerrit.plugins.multimaster.forwarder.rest.HttpResponseHandler.HttpResult;
 import com.github.tomakehurst.wiremock.http.Fault;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.github.tomakehurst.wiremock.stubbing.Scenario;

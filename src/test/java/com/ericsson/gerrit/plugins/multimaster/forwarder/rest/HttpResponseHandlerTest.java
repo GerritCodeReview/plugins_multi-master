@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.ericsson.gerrit.plugins.multimaster;
+package com.ericsson.gerrit.plugins.multimaster.forwarder.rest;
 
 import static com.google.common.truth.Truth.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import com.ericsson.gerrit.plugins.multimaster.HttpResponseHandler;
-import com.ericsson.gerrit.plugins.multimaster.HttpResponseHandler.HttpResult;
+import com.ericsson.gerrit.plugins.multimaster.forwarder.rest.HttpResponseHandler;
+import com.ericsson.gerrit.plugins.multimaster.forwarder.rest.HttpResponseHandler.HttpResult;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;

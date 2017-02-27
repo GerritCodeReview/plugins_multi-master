@@ -12,26 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.ericsson.gerrit.plugins.multimaster;
+package com.ericsson.gerrit.plugins.multimaster.forwarder.rest;
 
-/**
- * Forward event to the other master
- */
-interface EventForwarder {
+import com.google.gerrit.httpd.plugins.HttpPluginModule;
 
-  /**
-   * Forward a change indexing event to the other master.
-   *
-   * @param changeId the change to index.
-   * @return true if successful, otherwise false.
-   */
-  boolean indexChange(int changeId);
-
-  /**
-   * Forward a delete change from index event to the other master.
-   *
-   * @param changeId the change to remove from the index.
-   * @return rue if successful, otherwise false.
-   */
-  boolean deleteChangeFromIndex(int changeId);
+public class EventForwarderServletModule extends HttpPluginModule {
+  @Override
+  protected void configureServlets() {
+    serveRegex("/index/\\d+$").with(IndexRestApiServlet.class);
+  }
 }

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.ericsson.gerrit.plugins.multimaster;
+package com.ericsson.gerrit.plugins.multimaster.forwarder.rest;
 
 import static com.google.common.truth.Truth.assertThat;
 import static org.mockito.Mockito.when;
@@ -23,7 +23,7 @@ import com.google.inject.Injector;
 import com.google.inject.Scopes;
 
 import com.ericsson.gerrit.plugins.multimaster.Configuration;
-import com.ericsson.gerrit.plugins.multimaster.HttpClientProvider;
+import com.ericsson.gerrit.plugins.multimaster.forwarder.rest.HttpClientProvider;
 
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.junit.Before;

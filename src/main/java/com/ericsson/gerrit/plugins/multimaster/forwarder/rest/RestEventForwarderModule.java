@@ -1,4 +1,4 @@
-// Copyright (C) 2015 Ericsson
+// Copyright (C) 2017 Ericsson
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,20 +12,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.ericsson.gerrit.plugins.multimaster;
+package com.ericsson.gerrit.plugins.multimaster.forwarder.rest;
 
 import com.google.gerrit.lifecycle.LifecycleModule;
+import com.google.inject.Provides;
 import com.google.inject.Scopes;
 
-import com.ericsson.gerrit.plugins.multimaster.forwarder.rest.RestEventForwarderModule;
-import com.ericsson.gerrit.plugins.multimaster.index.IndexModule;
+import com.ericsson.gerrit.plugins.multimaster.Configuration;
+import com.ericsson.gerrit.plugins.multimaster.forwarder.EventForwarder;
 
-class Module extends LifecycleModule {
+import org.apache.http.impl.client.CloseableHttpClient;
+
+public class RestEventForwarderModule extends LifecycleModule {
 
   @Override
   protected void configure() {
-    bind(Configuration.class).in(Scopes.SINGLETON);
-    install(new RestEventForwarderModule());
-    install(new IndexModule());
+    bind(CloseableHttpClient.class).toProvider(HttpClientProvider.class)
+        .in(Scopes.SINGLETON);
+    bind(HttpSession.class);
+    bind(EventForwarder.class).to(RestEventForwarder.class);
+  }
+
+  @Provides
+  @ForwardUrl
+  String forwardUrl(Configuration config) {
+    return config.getUrl();
   }
 }

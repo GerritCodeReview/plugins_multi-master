@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.ericsson.gerrit.plugins.multimaster;
+package com.ericsson.gerrit.plugins.multimaster.forwarder.rest;
 
 import com.google.inject.Inject;
 
-import com.ericsson.gerrit.plugins.multimaster.HttpResponseHandler.HttpResult;
+import com.ericsson.gerrit.plugins.multimaster.forwarder.rest.HttpResponseHandler.HttpResult;
 
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPost;
@@ -30,7 +30,7 @@ class HttpSession {
 
   @Inject
   HttpSession(CloseableHttpClient httpClient,
-      @SyncUrl String url) {
+      @ForwardUrl String url) {
     this.httpClient = httpClient;
     this.url = url;
   }
