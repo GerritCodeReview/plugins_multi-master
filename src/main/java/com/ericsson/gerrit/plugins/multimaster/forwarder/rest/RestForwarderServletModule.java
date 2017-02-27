@@ -1,4 +1,4 @@
-// Copyright (C) 2015 Ericsson
+// Copyright (C) 2017 Ericsson
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,22 +14,12 @@
 
 package com.ericsson.gerrit.plugins.multimaster.forwarder.rest;
 
-import static com.google.common.truth.Truth.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import com.google.gerrit.httpd.plugins.HttpPluginModule;
 
-import com.ericsson.gerrit.plugins.multimaster.Configuration;
-
-import org.junit.Test;
-
-public class ModuleTest {
-
-  @Test
-  public void testForwardUrlProvider() {
-    Configuration configMock = mock(Configuration.class);
-    String expected = "someUrl";
-    when(configMock.getUrl()).thenReturn(expected);
-    RestEventForwarderModule module = new RestEventForwarderModule();
-    assertThat(module.forwardUrl(configMock)).isEqualTo(expected);
+public class RestForwarderServletModule extends HttpPluginModule {
+  @Override
+  protected void configureServlets() {
+    serveRegex("/index/\\d+$").with(IndexRestApiServlet.class);
+    serve("/event").with(EventRestApiServlet.class);
   }
 }
