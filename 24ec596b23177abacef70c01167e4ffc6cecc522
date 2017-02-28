@@ -22,6 +22,30 @@
       "revId": "24ec596b23177abacef70c01167e4ffc6cecc522",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef8e3764_51564ad4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-02-28T03:07:04Z",
+      "side": 1,
+      "message": "Yes, I\u0027m building in tree.\n\nI\u0027m also having a problem getting the eclipse project generation to work properly in-tree.  For some reason it\u0027s not picking up the mockito classes.",
+      "parentUuid": "d3a81af3_1d54b808",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "24ec596b23177abacef70c01167e4ffc6cecc522",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
