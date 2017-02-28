@@ -46,6 +46,30 @@
       "revId": "24ec596b23177abacef70c01167e4ffc6cecc522",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21143d08_4e4b6320",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2017-02-28T03:27:30Z",
+      "side": 1,
+      "message": "The eclipse project generation for plugins in tree has a limitation, it does not honour the test dependencies. If the plugin has test dependencies that Gerrit doesn\u0027t(wiremock and Mockito), they are not added to eclipse classpath.",
+      "parentUuid": "ef8e3764_51564ad4",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "24ec596b23177abacef70c01167e4ffc6cecc522",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
