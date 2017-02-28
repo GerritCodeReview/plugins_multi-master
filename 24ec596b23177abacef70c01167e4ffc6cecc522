@@ -118,6 +118,30 @@
       "revId": "24ec596b23177abacef70c01167e4ffc6cecc522",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cec67694_a8f30114",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2017-02-28T03:39:11Z",
+      "side": 1,
+      "message": "We need to fix project.py to add deps of java_test rule to the generated classpath but it\u0027s easier said than done.\n\nOtherwise, the only work around is to add those 2 dependencies as plugin dependencies instead but the downside is they will end up in the jar.",
+      "parentUuid": "a6bca630_741d8c5e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "24ec596b23177abacef70c01167e4ffc6cecc522",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
