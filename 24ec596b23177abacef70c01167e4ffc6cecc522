@@ -94,6 +94,30 @@
       "revId": "24ec596b23177abacef70c01167e4ffc6cecc522",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6bca630_741d8c5e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-02-28T03:33:55Z",
+      "side": 1,
+      "message": "Hmm, I was not aware of this limitation until now.  I\u0027d like to fix this, if possible, because I need to be able to build the plugin as a submodule.",
+      "parentUuid": "33df9361_25eb7117",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "24ec596b23177abacef70c01167e4ffc6cecc522",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
