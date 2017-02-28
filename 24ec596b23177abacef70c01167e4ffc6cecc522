@@ -70,6 +70,30 @@
       "revId": "24ec596b23177abacef70c01167e4ffc6cecc522",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33df9361_25eb7117",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2017-02-28T03:32:27Z",
+      "side": 1,
+      "message": "I think this problem is fixed with the bazel build we have in sync-index master. Maybe we should just remove the support for in tree build or document this limitation as a know issue with in tree eclipse project generation in build.md",
+      "parentUuid": "21143d08_4e4b6320",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "24ec596b23177abacef70c01167e4ffc6cecc522",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
