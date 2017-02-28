@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57a6a324_511e1262",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/multimaster/Configuration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2017-02-28T03:33:55Z",
+      "side": 1,
+      "message": "should we mention that default value will be used instead?",
+      "range": {
+        "startLine": 68,
+        "startChar": 31,
+        "endLine": 68,
+        "endChar": 48
+      },
+      "revId": "449348703cd715dbecec37f5b5274e69f0a57144",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
