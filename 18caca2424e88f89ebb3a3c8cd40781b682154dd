@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///+Y\u003d",
         "filename": "/COMMIT_MSG",
@@ -14,10 +15,27 @@
       "side": 1,
       "message": "If the config file is missing, the gerrit instance won\u0027t start, add as TODO? init step? or provide a sample?\n\nThere is also no readme that describes the project, put the comment in a readme and add even more documentation there?",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "350b99bd_98cdce08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1147360
+      },
+      "writtenOn": "2022-04-10T18:54:54Z",
+      "side": 1,
+      "message": "haze",
+      "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///+c\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/Json.java",
@@ -31,10 +49,10 @@
       "side": 1,
       "message": "equals is there but hashCode is missing, something like;\n\n  @Override\n  public int hashCode() {\n    int result \u003d 42;\n    result \u003d 31 * result + string.hashCode();\n    result \u003d 31 * result + type.hashCode();\n    return result;\n  }",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "ONiwA0ws",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/MultiMasterUtil.java",
@@ -48,10 +66,10 @@
       "side": 1,
       "message": "It can be calculated without a temp array. Btw, where these methods are used?",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///+o\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/OnStartStop.java",
@@ -65,10 +83,10 @@
       "side": 1,
       "message": "This variable is not used at all in the code",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn////A\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/cache/CacheRemovalListenerImpl.java",
@@ -82,10 +100,10 @@
       "side": 1,
       "message": "Imports for unused logging",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///+8\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/cache/CacheRemovalListenerImpl.java",
@@ -99,10 +117,10 @@
       "side": 1,
       "message": "There is no logging in this file",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///+4\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/cache/CacheRemovalListenerImpl.java",
@@ -116,10 +134,10 @@
       "side": 1,
       "message": "I would suggest;\nprivate static Set\u003cThread\u003e ignoredThreads \u003d\n      new ConcurrentHashMap\u003cThread, Boolean\u003e().keySet();\n\ninstead",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///88\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/impl/git/GitRefManager.java",
@@ -133,10 +151,10 @@
       "side": 1,
       "message": "It indeed is",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///9E\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/impl/git/GitRefManager.java",
@@ -150,10 +168,10 @@
       "side": 1,
       "message": "log?",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///9A\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/impl/git/GitRefManager.java",
@@ -167,10 +185,10 @@
       "side": 1,
       "message": "log?",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///+0\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/impl/git/GitRefManager.java",
@@ -184,10 +202,10 @@
       "side": 1,
       "message": "this assignment is never used",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///9g\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/impl/git/GitRefPeerRegistry.java",
@@ -201,10 +219,10 @@
       "side": 1,
       "message": "handle exception",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///9c\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/impl/git/GitRefPeerRegistry.java",
@@ -218,10 +236,10 @@
       "side": 1,
       "message": "log?",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///9Y\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/impl/git/GitRefPeerRegistry.java",
@@ -235,10 +253,10 @@
       "side": 1,
       "message": "this quits the whole vm, is this what you really want to do? Is this something you want to run on server shutdown?",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///9M\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/impl/git/GitRefPeerRegistry.java",
@@ -252,10 +270,10 @@
       "side": 1,
       "message": "nanos are more reliable",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "7d29791e_54fe6ced",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/impl/git/GitRefPeerRegistry.java",
@@ -269,10 +287,10 @@
       "side": 1,
       "message": "Recursion seems like a bad idea here.  Maybe a \u0027while\u0027 instead?  But it seems like either case could result in an infinite loop if the refreshTime is too short.",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///+w\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/impl/udp/UDPEvictor.java",
@@ -286,10 +304,10 @@
       "side": 1,
       "message": "Import for unused variable",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///+s\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/impl/udp/UDPEvictor.java",
@@ -303,10 +321,10 @@
       "side": 1,
       "message": "This variable is only assigned, not used?",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///80\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/impl/udp/UDPModule.java",
@@ -320,10 +338,10 @@
       "side": 1,
       "message": "There are multiple system.exit s in this plugin, which worries me",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAAImn////o\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/peer/Pacemaker.java",
@@ -337,10 +355,10 @@
       "side": 1,
       "message": "Nit: feels like too many blank lines.",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAAImn////k\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/peer/Pacemaker.java",
@@ -354,10 +372,10 @@
       "side": 1,
       "message": "Instead of extending a PeerRegistry.Listener, since I believe the intent is to be able to externally bind the Pacemaker to a PeerRegistry, would simply defining a listenTo(PeerRegistry.Listener) method more clearly express this?  Additionally, this would allow a Pacemaker more freedom implementing the PeerRegistry.Listener, it could the do so via an internal listener instead of directly implementating the listener interaface if it suited the Pacemaker better.",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAAImn////g\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/peer/Pacemaker.java",
@@ -371,10 +389,10 @@
       "side": 1,
       "message": "Extra abstracts?",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAALmn///94\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/peer/Peer.java",
@@ -388,10 +406,10 @@
       "side": 1,
       "message": "Use UUID?\n\nUUID.randomUUID();\n\nshould be good enough for your usecase",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "AAAImn////s\u003d",
         "filename": "src/main/java/com/google/gerrit/plugins/multimaster/peer/PeerRegistry.java",
@@ -405,8 +423,7 @@
       "side": 1,
       "message": "Does abstract provide any value on an interface?",
       "revId": "18caca2424e88f89ebb3a3c8cd40781b682154dd",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
